@@ -20,7 +20,6 @@ def split_ratings(ratings, test_frac=0.10, seed=0):
   return ratings.iloc[~is_test].copy(), ratings.iloc[is_test].copy()
 
 def to_matrix(df):
-  N_USERS, N_ITEMS = 943, 1682
   R = np.full((N_USERS, N_ITEMS), np.nan)
   R[df["user"].to_numpy() - 1,
     df["item"].to_numpy() - 1] = df["rating"].to_numpy()
