@@ -20,9 +20,6 @@ def baseline_matrix(R):
   #Full matrix: overall mean plus user and movie effects.
   mu, b_user, b_item = bias_baseline(R)
   return mu + b_user[:, None] + b_item[None, :]
-B_fit = baseline_matrix(R_fit)
-baseline_val_rmse = score_at(B_fit, val_u, val_i, val_truth)
-print("Baseline validation RMSE:", round(baseline_val_rmse, 4))
 
 def rank_k(U, s, Vt, k):
   #Build a rank-k matrix from an already computed SVD.
